@@ -1,0 +1,75 @@
+# ===================================================
+# Lernyxa LMS — Git Ignore
+# ===================================================
+
+# ─────────────── Environment ───────────────
+.env
+.env.local
+.env.*.local
+.env.backup
+.env.production
+
+# ─────────────── IDE ───────────────
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─────────────── Docker ───────────────
+docker-compose.override.yml
+
+# ─────────────── Laravel (Backend) ───────────────
+backend/vendor/
+backend/node_modules/
+backend/.env
+backend/.env.backup
+backend/storage/*.key
+backend/storage/framework/cache/data/*
+backend/storage/framework/sessions/*
+backend/storage/framework/views/*
+backend/storage/logs/*
+backend/bootstrap/cache/*
+backend/public/hot
+backend/public/storage
+backend/.phpunit.result.cache
+backend/.phpunit.cache/
+backend/_ide_helper*.php
+backend/.scribe/
+
+# ─────────────── Next.js (Frontend) ───────────────
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.env
+frontend/.env.local
+frontend/.env.*.local
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/.pnpm-debug.log*
+frontend/next-env.d.ts
+frontend/coverage/
+frontend/.vercel/
+
+# ─────────────── Testing ───────────────
+/coverage/
+*.lcov
+/test-results/
+/playwright-report/
+/playwright/.cache/
+
+# ─────────────── OS ───────────────
+.DS_Store
+*.pem
+*.log
+
+# ─────────────── MinIO local data ───────────────
+minio_data/
+
+# ─────────────── Documentation artifacts ───────────────
+*.pdf
+!docs/**/*.pdf
