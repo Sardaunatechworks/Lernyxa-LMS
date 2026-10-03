@@ -14,14 +14,21 @@ export const apiClient = axios.create({
   withXSRFToken: true,
 });
 
-/**
- * Fetch CSRF cookie from Laravel Sanctum prior to authentication or mutating requests
- */
 export async function getCsrfCookie(): Promise<void> {
   await axios.get(`${API_URL}/sanctum/csrf-cookie`, {
     withCredentials: true,
   });
 }
+
+apiClient.interceptors.request.use((config: InternalAxiosRequestConfig) => {
+  if (typeof window !== "undefined") {
+    const token = localStorage.getItem("lernyxa_token");
+    if (token && config.headers) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+  }
+  return config;
+});
 
 apiClient.interceptors.response.use(
   (response) => response,

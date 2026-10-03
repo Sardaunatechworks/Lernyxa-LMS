@@ -12,6 +12,17 @@ Route::prefix('v1')->group(function () {
             'timestamp' => now()->toIso8601String(),
         ]);
     });
+
+    // Authentication Routes
+    Route::prefix('auth')->group(function () {
+        Route::post('/login', [\App\Http\Controllers\Api\v1\AuthController::class, 'login']);
+        Route::post('/register', [\App\Http\Controllers\Api\v1\AuthController::class, 'register']);
+
+        Route::middleware('auth:sanctum')->group(function () {
+            Route::get('/me', [\App\Http\Controllers\Api\v1\AuthController::class, 'me']);
+            Route::post('/logout', [\App\Http\Controllers\Api\v1\AuthController::class, 'logout']);
+        });
+    });
 });
 
 Route::get('/user', function (Request $request) {
