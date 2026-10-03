@@ -8,9 +8,13 @@ export type Role =
 export interface User {
   id: string;
   name: string;
+  first_name?: string | null;
+  last_name?: string | null;
   email: string;
   avatar_url?: string | null;
   phone?: string | null;
+  status?: string;
+  bio?: string | null;
   roles: Role[];
   permissions?: string[];
   tenant_id?: string | null;

@@ -110,6 +110,7 @@ class RoleAndPermissionSeeder extends Seeder
         $instructor = Role::findOrCreate('instructor', 'web');
         $instructor->givePermissionTo([
             'cohorts.view',
+            'courses.create',
             'courses.edit',
             'courses.view',
             'live_sessions.create',
